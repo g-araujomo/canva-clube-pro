@@ -1,0 +1,60 @@
+# 🏆 Estratégia de Vendas Canva Pro 2.4: O "Master Prompt" Final (PT-BR)
+
+Esta versão final foi ajustada para refletir exatamente os planos de 1 e 2 anos, removendo qualquer menção a acesso vitalício ou suporte prioritário, focando nos benefícios reais da ferramenta.
+
+---
+
+## 🎨 1. Estética & Identidade Visual
+*   **Cor Predominante:** Branco (#FFFFFF) para um visual limpo e profissional.
+*   **Acentos:** Roxo (#7D2AE8) e Turquesa (#00C4CC).
+*   **CTA (Botões):** Amarelo Vibrante (#FFD700) para máxima conversão.
+*   **Tipografia:** Inter ou Montserrat (Modernas e Limpas).
+
+---
+
+## 🏗️ 2. Estrutura de Alta Conversão (Seções)
+
+### [SEÇÃO 1] HERO / TOPO
+*   **Headline:** O Canva Pro que você precisa, pelo preço que você pode pagar.
+*   **Sub-headline:** Desbloqueie todos os recursos premium por 1 ou 2 anos. Entrega imediata via e-mail.
+*   **VÍDEO:** [Vídeo explicativo no topo].
+
+### [SEÇÃO 2] BENEFÍCIOS DO PLANO PRO (Para Ambos os Planos)
+*   **Removedor de Background:** Remova fundos de fotos e vídeos com 1 clique.
+*   **Downloads Ilimitados:** Baixe quantos designs quiser em alta resolução.
+*   **Redimensionamento Mágico:** Transforme um post em story ou reels instantaneamente.
+*   **Kit de Marca:** Mantenha suas cores, logos e fontes sempre organizadas.
+*   **100M+ Ativos:** Acesso total a fotos, vídeos e elementos premium sem marcas d'água.
+
+### [SEÇÃO 3] PLANOS E PREÇOS
+| Recurso | Plano 1 Ano | Plano 2 Anos (Recomendado) |
+| :--- | :---: | :---: |
+| Duração | 12 Meses | 24 Meses |
+| Preço | **R$ 34,90** | **R$ 54,90** |
+| Benefícios Pro | ✅ Todos inclusos | ✅ Todos inclusos |
+| Acesso | Via E-mail | Via E-mail |
+
+*Nota: O acesso é temporário de acordo com o plano escolhido (1 ou 2 anos).*
+
+---
+
+## 🤖 3. O MASTER PROMPT FINAL (Copie e Cole no Stitch)
+
+> "Create a high-conversion, professional sales landing page for a Canva Pro reseller service. **All text and content must be in Portuguese (pt-BR).**
+> **Style:** Clean and minimal. Primary color is White (#FFFFFF). Use Purple (#7D2AE8) and Teal (#00C4CC) only for accents and icons.
+> **Structure:** 
+> 1. Hero Section: Top-center headline in Portuguese: 'O Canva Pro que você precisa, pelo preço que você pode pagar.' Sub-headline: 'Desbloqueie todos os recursos premium por 1 ou 2 anos. Entrega imediata via e-mail.' Centralized large video placeholder.
+> 2. Benefits Grid: A clean 2x2 or 3x2 grid showing benefits in Portuguese: 'Removedor de Background', 'Downloads Ilimitados', 'Redimensionamento Mágico', 'Kit de Marca', '100M+ Ativos Premium'.
+> 3. Pricing Cards: Two white cards on a light background. 
+>    - Card 1: 'Plano 1 Ano - R$ 34,90'. 
+>    - Card 2: 'Plano 2 Anos - R$ 54,90' (Add a 'Mais Vendido' badge).
+>    - Ensure both state that it is for the specific duration (1 or 2 years), NO mention of 'lifetime' or 'vitalício'.
+> 4. Micro-interactions: Buttons (#FFD700) should pulse. Pricing cards should slightly scale on hover.
+> 5. Footer: Simple accordion FAQ in Portuguese: 'É seguro?', 'Como recebo?', 'Quanto tempo dura o acesso?'. Add a floating WhatsApp button."
+
+---
+
+## 🚀 Próximos Passos
+1. Use o **Master Prompt** acima no Google Stitch.
+2. Certifique-se de que o design seja bem **clean (branco)**.
+3. Assim que tiver o código, me envie para finalizarmos a implementação técnica!
