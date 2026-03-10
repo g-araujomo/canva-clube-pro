@@ -1,0 +1,726 @@
+<html lang="pt-BR">
+
+<head>
+    <meta charset="utf-8" />
+    <title>Clube Canva Pro</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;display=swap"
+        rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#ffd900",
+                        "accent-purple": "#7D2AE8",
+                        "accent-teal": "#00C4CC",
+                        "background-light": "#f8f8f5",
+                        "background-dark": "#23200f",
+                    },
+                    fontFamily: {
+                        "display": ["Plus Jakarta Sans", "sans-serif"]
+                    },
+                    borderRadius: { "DEFAULT": "1rem", "lg": "2rem", "xl": "3rem", "full": "9999px" },
+                },
+            },
+        }
+    </script>
+    <style>
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+        }
+
+        .glass-card {
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(10px);
+        }
+
+        /* Animations */
+        @keyframes custom-float {
+
+            0%,
+            100% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(-10px);
+            }
+        }
+
+        .animate-float {
+            animation: custom-float 3s ease-in-out infinite;
+        }
+
+        @keyframes pulse-highlight {
+
+            0%,
+            100% {
+                box-shadow: 0 0 0 0 rgba(255, 215, 0, 0.4);
+                transform: scale(1);
+            }
+
+            50% {
+                box-shadow: 0 0 0 20px rgba(255, 215, 0, 0);
+                transform: scale(1.05);
+            }
+        }
+
+        .animate-pulse-highlight {
+            animation: pulse-highlight 2s infinite;
+        }
+
+        .fade-in-up {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+        }
+
+        .fade-in-up.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Marquee Carousel */
+        .marquee-container {
+            width: 100%;
+            overflow: hidden;
+            position: relative;
+            padding: 1rem 0;
+            white-space: nowrap;
+        }
+
+        .marquee-container::before,
+        .marquee-container::after {
+            content: "";
+            position: absolute;
+            top: 0;
+            width: 100px;
+            height: 100%;
+            z-index: 10;
+        }
+
+        .marquee-container::before {
+            left: 0;
+            background: linear-gradient(to right, white, transparent);
+        }
+
+        .marquee-container::after {
+            right: 0;
+            background: linear-gradient(to left, white, transparent);
+        }
+
+        .marquee-content {
+            display: inline-block;
+            animation: marquee 30s linear infinite;
+        }
+
+        .marquee-content:hover {
+            animation-play-state: paused;
+        }
+
+        .marquee-item {
+            display: inline-block;
+            white-space: normal;
+            width: 350px;
+            margin-right: 2rem;
+            vertical-align: top;
+        }
+
+        @keyframes marquee {
+            0% {
+                transform: translateX(0);
+            }
+
+            100% {
+                transform: translateX(-50%);
+            }
+        }
+    </style>
+    <style>
+        body {
+            min-height: max(884px, 100dvh);
+        }
+    </style>
+
+    <!-- Meta Pixel Code -->
+    <script>
+        !function (f, b, e, v, n, t, s) {
+            if (f.fbq) return; n = f.fbq = function () {
+                n.callMethod ?
+                    n.callMethod.apply(n, arguments) : n.queue.push(arguments)
+            };
+            if (!f._fbq) f._fbq = n; n.push = n; n.loaded = !0; n.version = '2.0';
+            n.queue = []; t = b.createElement(e); t.async = !0;
+            t.src = v; s = b.getElementsByTagName(e)[0];
+            s.parentNode.insertBefore(t, s)
+        }(window, document, 'script',
+            'https://connect.facebook.net/en_US/fbevents.js');
+        fbq('init', '1643780043743860');
+        fbq('track', 'PageView');
+    </script>
+    <noscript><img height="1" width="1" style="display:none"
+            src="https://www.facebook.com/tr?id=1643780043743860&ev=PageView&noscript=1" /></noscript>
+    <!-- End Meta Pixel Code -->
+</head>
+
+<body class="bg-background-light text-slate-900 font-display">
+    <!-- Top Bar Urgency -->
+    <div class="bg-accent-purple text-white text-center py-2 px-4 text-xs sm:text-sm font-bold tracking-wide">
+        <span class="animate-pulse inline-block">⚡ ÚLTIMAS VAGAS LIBERADAS NA EQUIPE COM VALOR PROMOCIONAL</span>
+    </div>
+    <!-- Top App Bar -->
+    <nav
+        class="sticky top-0 z-50 bg-white/80 backdrop-blur-md border-b border-slate-100 px-4 py-3 flex items-center justify-between">
+        <div class="flex items-center gap-2">
+            <img src="https://i.imgur.com/lVkrlgb.png" alt="Clube Canva Pro Logo" class="h-10 w-auto" />
+        </div>
+        <a href="#planos"
+            class="bg-primary hover:scale-105 transition-transform px-4 py-2 rounded-full text-sm font-bold shadow-sm inline-block text-center">
+            Assinar
+        </a>
+    </nav>
+    <!-- Hero Section -->
+    <section class="px-6 py-10 flex flex-col items-center text-center gap-8 max-w-2xl mx-auto fade-in-up">
+        <div class="space-y-4">
+            <h1 class="text-4xl md:text-5xl font-extrabold leading-tight tracking-tight text-slate-900">
+                O Canva Pro que você precisa, pelo <span class="text-accent-purple">preço que você pode pagar.</span>
+            </h1>
+            <p class="text-slate-600 text-lg leading-relaxed">
+                Desbloqueie todos os recursos premium por 3 Dias, 1 ou 2 anos. Entrega imediata via e-mail.
+            </p>
+        </div>
+        <!-- Video Embed -->
+        <div class="w-full rounded-xl shadow-2xl relative overflow-hidden group">
+            <script src="https://fast.wistia.com/player.js" async></script>
+            <script src="https://fast.wistia.com/embed/7p3jkc52y0.js" async type="module"></script>
+            <style>
+                wistia-player[media-id='7p3jkc52y0']:not(:defined) {
+                    background: center / contain no-repeat url('https://fast.wistia.com/embed/medias/7p3jkc52y0/swatch');
+                    display: block;
+                    filter: blur(5px);
+                    padding-top: 56.25%;
+                }
+            </style> <wistia-player media-id="7p3jkc52y0" aspect="1.7777777777777777"></wistia-player>
+        </div>
+        <a href="#planos"
+            class="w-full max-w-md bg-primary py-5 rounded-full text-lg font-extrabold shadow-lg shadow-primary/20 hover:shadow-xl transition-all animate-pulse-highlight inline-block text-center">
+            ASSINAR AGORA
+        </a>
+    </section>
+    </section>
+
+    <!-- Trust Bar (Social Proof) -->
+    <section class="w-full bg-white border-y border-slate-100 py-6 fade-in-up" style="transition-delay: 100ms;">
+        <div class="max-w-4xl mx-auto px-6 flex flex-col sm:flex-row items-center justify-around gap-6">
+            <div class="flex items-center gap-3">
+                <span class="material-symbols-outlined text-accent-purple text-3xl">verified_user</span>
+                <span class="font-bold text-slate-700 text-sm uppercase tracking-wide">Segurança Garantida</span>
+            </div>
+            <div class="flex items-center gap-3">
+                <span class="material-symbols-outlined text-primary text-3xl">bolt</span>
+                <span class="font-bold text-slate-700 text-sm uppercase tracking-wide">Entrega Imediata</span>
+            </div>
+            <div class="flex items-center gap-3">
+                <span class="material-symbols-outlined text-accent-teal text-3xl">shield</span>
+                <span class="font-bold text-slate-700 text-sm uppercase tracking-wide">Garantia de 7 dias</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Target Audience -->
+    <section class="px-6 py-16 bg-slate-50 border-y border-slate-100 fade-in-up">
+        <div class="max-w-4xl mx-auto">
+            <h2 class="text-2xl md:text-3xl font-bold mb-10 text-center">Para quem é o Clube Canva Pro?</h2>
+            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6">
+                <!-- item 1 -->
+                <div
+                    class="bg-white p-6 rounded-2xl shadow-sm border border-slate-100 text-center hover:-translate-y-1 transition-transform">
+                    <span class="material-symbols-outlined text-4xl text-accent-purple mb-3">campaign</span>
+                    <h3 class="font-bold text-slate-800 mb-2">Social Medias</h3>
+                    <p class="text-xs text-slate-500">Mais agilidade e qualidade gráfica para seus clientes.</p>
+                </div>
+                <!-- item 2 -->
+                <div
+                    class="bg-white p-6 rounded-2xl shadow-sm border border-slate-100 text-center hover:-translate-y-1 transition-transform">
+                    <span class="material-symbols-outlined text-4xl text-primary mb-3">storefront</span>
+                    <h3 class="font-bold text-slate-800 mb-2">Empreendedores</h3>
+                    <p class="text-xs text-slate-500">Destaque sua marca e venda mais com posts magnéticos.</p>
+                </div>
+                <!-- item 3 -->
+                <div
+                    class="bg-white p-6 rounded-2xl shadow-sm border border-slate-100 text-center hover:-translate-y-1 transition-transform">
+                    <span class="material-symbols-outlined text-4xl text-accent-teal mb-3">design_services</span>
+                    <h3 class="font-bold text-slate-800 mb-2">Designers Iniciantes</h3>
+                    <p class="text-xs text-slate-500">Recursos premium para criar portfólios profissionais.</p>
+                </div>
+                <!-- item 4 -->
+                <div
+                    class="bg-white p-6 rounded-2xl shadow-sm border border-slate-100 text-center hover:-translate-y-1 transition-transform">
+                    <span class="material-symbols-outlined text-4xl text-slate-800 mb-3">rocket_launch</span>
+                    <h3 class="font-bold text-slate-800 mb-2">Afiliados</h3>
+                    <p class="text-xs text-slate-500">Tenha criativos que chamam atenção e convertem rápido.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Benefits Grid -->
+    <section class="px-6 py-12 bg-white fade-in-up" style="transition-delay: 200ms;">
+        <h2 class="text-2xl font-bold mb-8 text-center">Tudo o que você terá acesso</h2>
+        <div class="grid grid-cols-2 gap-4">
+            <div class="p-5 rounded-2xl bg-slate-50 border border-slate-100 flex flex-col gap-3">
+                <span class="material-symbols-outlined text-accent-purple text-3xl">auto_fix_high</span>
+                <h3 class="font-bold text-slate-800 leading-tight">Removedor de Background</h3>
+            </div>
+            <div class="p-5 rounded-2xl bg-slate-50 border border-slate-100 flex flex-col gap-3">
+                <span class="material-symbols-outlined text-accent-teal text-3xl">cloud_download</span>
+                <h3 class="font-bold text-slate-800 leading-tight">Downloads Ilimitados</h3>
+            </div>
+            <div class="p-5 rounded-2xl bg-slate-50 border border-slate-100 flex flex-col gap-3">
+                <span class="material-symbols-outlined text-accent-purple text-3xl">aspect_ratio</span>
+                <h3 class="font-bold text-slate-800 leading-tight">Redimensionamento Mágico</h3>
+            </div>
+            <div class="p-5 rounded-2xl bg-slate-50 border border-slate-100 flex flex-col gap-3">
+                <span class="material-symbols-outlined text-accent-teal text-3xl">branding_watermark</span>
+                <h3 class="font-bold text-slate-800 leading-tight">Kit de Marca</h3>
+            </div>
+            <div class="col-span-2 p-5 rounded-2xl bg-slate-50 border border-slate-100 flex items-center gap-4">
+                <span class="material-symbols-outlined text-accent-purple text-3xl">gallery_thumbnail</span>
+                <h3 class="font-bold text-slate-800 leading-tight">100M+ Ativos Premium</h3>
+            </div>
+        </div>
+    </section>
+
+    <!-- How it Works -->
+    <section class="px-6 py-16 bg-white border-b border-slate-100 fade-in-up">
+        <div class="max-w-4xl mx-auto">
+            <h2 class="text-2xl md:text-3xl font-bold mb-12 text-center text-slate-900">Como funciona o acesso?</h2>
+            <div class="flex flex-col md:flex-row gap-8 relative items-start">
+                <!-- Linha conectora -->
+                <div class="hidden md:block absolute top-12 left-[16%] right-[16%] h-1 bg-slate-100 z-0"></div>
+
+                <div class="flex-1 flex flex-col items-center text-center relative z-10 w-full group">
+                    <div
+                        class="w-24 h-24 bg-white border-4 border-slate-50 shadow-lg rounded-full flex items-center justify-center mb-6 group-hover:scale-110 group-hover:border-primary transition-all text-primary">
+                        <span class="material-symbols-outlined text-4xl">shopping_cart_checkout</span>
+                    </div>
+                    <div class="bg-primary text-slate-900 text-xs font-black px-3 py-1 rounded-full mb-3 uppercase">
+                        Passo 1</div>
+                    <h3 class="font-bold text-lg mb-2 text-slate-900">Assine com Segurança</h3>
+                    <p class="text-sm text-slate-600">Escolha o plano ideal e faça o pagamento em nosso checkout
+                        blindado e oficial.</p>
+                </div>
+
+                <div class="flex-1 flex flex-col items-center text-center relative z-10 w-full group">
+                    <div
+                        class="w-24 h-24 bg-white border-4 border-slate-50 shadow-lg rounded-full flex items-center justify-center mb-6 group-hover:scale-110 group-hover:border-accent-purple transition-all text-accent-purple">
+                        <span class="material-symbols-outlined text-4xl">mail</span>
+                    </div>
+                    <div class="bg-accent-purple text-white text-xs font-black px-3 py-1 rounded-full mb-3 uppercase">
+                        Passo 2</div>
+                    <h3 class="font-bold text-lg mb-2 text-slate-900">Cheque seu E-mail</h3>
+                    <p class="text-sm text-slate-600">O convite VIP da equipe chegará instantaneamente após a
+                        confirmação da transação.</p>
+                </div>
+
+                <div class="flex-1 flex flex-col items-center text-center relative z-10 w-full group">
+                    <div
+                        class="w-24 h-24 bg-white border-4 border-slate-50 shadow-lg rounded-full flex items-center justify-center mb-6 group-hover:scale-110 group-hover:border-accent-teal transition-all text-accent-teal">
+                        <span class="material-symbols-outlined text-4xl">stars</span>
+                    </div>
+                    <div class="bg-accent-teal text-white text-xs font-black px-3 py-1 rounded-full mb-3 uppercase">
+                        Passo 3</div>
+                    <h3 class="font-bold text-lg mb-2 text-slate-900">Tudo Liberado</h3>
+                    <p class="text-sm text-slate-600">Aceite o convite usando <strong>sua conta atual</strong> e
+                        aproveite, sem perder nenhum design anterior!</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Comparison Table -->
+    <section class="px-6 py-12 bg-white fade-in-up">
+        <div class="max-w-3xl mx-auto">
+            <h2 class="text-2xl md:text-3xl font-bold mb-10 text-center">Por que mudar para o Pro?</h2>
+
+            <div class="bg-white rounded-3xl shadow-lg border border-slate-100 overflow-hidden">
+                <div
+                    class="grid grid-cols-[2fr_1fr_1fr] bg-slate-50 p-4 border-b border-slate-100 font-bold text-xs sm:text-sm text-center items-center">
+                    <div class="text-left text-slate-800">Recurso</div>
+                    <div class="text-slate-400">Canva Grátis</div>
+                    <div class="text-accent-purple text-base">Clube Pro</div>
+                </div>
+
+                <div class="grid grid-cols-[2fr_1fr_1fr] p-4 border-b border-slate-50 text-sm items-center text-center">
+                    <div class="text-left font-semibold text-slate-700">Templates Premium</div>
+                    <div class="text-red-400"><span class="material-symbols-outlined">close</span></div>
+                    <div class="text-accent-teal"><span class="material-symbols-outlined">check_circle</span></div>
+                </div>
+                <div
+                    class="grid grid-cols-[2fr_1fr_1fr] p-4 border-b border-slate-50 text-sm items-center text-center bg-slate-50/50">
+                    <div class="text-left font-semibold text-slate-700">Removedor de Fundo</div>
+                    <div class="text-red-400"><span class="material-symbols-outlined">close</span></div>
+                    <div class="text-accent-teal"><span class="material-symbols-outlined">check_circle</span></div>
+                </div>
+                <div class="grid grid-cols-[2fr_1fr_1fr] p-4 border-b border-slate-50 text-sm items-center text-center">
+                    <div class="text-left font-semibold text-slate-700">Kit de Marca (Cores/Logos)</div>
+                    <div class="text-red-400"><span class="material-symbols-outlined">close</span></div>
+                    <div class="text-accent-teal"><span class="material-symbols-outlined">check_circle</span></div>
+                </div>
+                <div
+                    class="grid grid-cols-[2fr_1fr_1fr] p-4 border-b border-slate-50 text-sm items-center text-center bg-slate-50/50">
+                    <div class="text-left font-semibold text-slate-700">Redimensionamento Mágico</div>
+                    <div class="text-red-400"><span class="material-symbols-outlined">close</span></div>
+                    <div class="text-accent-teal"><span class="material-symbols-outlined">check_circle</span></div>
+                </div>
+                <div class="grid grid-cols-[2fr_1fr_1fr] p-4 text-sm items-center text-center">
+                    <div class="text-left font-semibold text-slate-700">Fontes Premium</div>
+                    <div class="text-red-400"><span class="material-symbols-outlined">close</span></div>
+                    <div class="text-accent-teal"><span class="material-symbols-outlined">check_circle</span></div>
+                </div>
+            </div>
+            <div class="text-center mt-8">
+                <a href="#planos"
+                    class="bg-primary text-slate-900 px-8 py-3 rounded-full font-bold shadow-md hover:scale-105 transition-transform inline-block">Quero
+                    todos os benefícios Pro</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing Cards -->
+    <section id="planos" class="px-6 py-16 bg-background-light">
+        <div class="flex flex-col gap-8 max-w-md mx-auto">
+            <!-- Card 1 -->
+            <div class="bg-white p-8 rounded-3xl shadow-xl border border-slate-100 relative overflow-hidden transition-transform hover:scale-105 fade-in-up"
+                style="transition-delay: 100ms;">
+                <h3 class="text-xl font-bold text-slate-900 mb-2">Plano 3 Dias</h3>
+                <div class="text-sm text-slate-400 line-through mb-1">Custo oficial: R$ 14,70 / 3 Dias</div>
+                <div class="flex items-center gap-2 mb-6">
+                    <div class="flex items-baseline gap-1 text-slate-900">
+                        <span class="text-2xl font-bold">R$</span>
+                        <span class="text-5xl font-black">4,99</span>
+                    </div>
+                    <span
+                        class="bg-green-100 text-green-700 border border-green-200 font-bold text-xs px-2 py-0.5 rounded-md whitespace-nowrap">-66%
+                        OFF</span>
+                </div>
+                <ul class="space-y-4 mb-8">
+                    <li class="flex items-center gap-3 text-slate-600 font-semibold">
+                        <span class="material-symbols-outlined text-accent-teal text-xl">check_circle</span>
+                        Acesso por 3 Dias
+                    </li>
+                    <li class="flex items-center gap-3 text-slate-600">
+                        <span class="material-symbols-outlined text-accent-teal text-xl">check_circle</span>
+                        Todos os recursos Pro
+                    </li>
+                </ul>
+                <a href="https://seguro.caeluss.com.br/r/ODWR3SQFJU" target="_blank"
+                    class="w-full bg-primary py-4 rounded-full font-bold shadow-md inline-block text-center hover:scale-105 transition-transform">Assinar
+                    Agora</a>
+            </div>
+            <!-- Card 2-->
+            <div class="bg-white p-8 rounded-3xl shadow-xl border border-slate-100 relative overflow-hidden transition-transform hover:scale-105 fade-in-up"
+                style="transition-delay: 100ms;">
+                <h3 class="text-xl font-bold text-slate-900 mb-2">Plano 1 Ano</h3>
+                <div class="text-sm text-slate-400 line-through mb-1">Custo oficial: R$ 418,80 / ano</div>
+                <div class="flex items-center gap-2 mb-6">
+                    <div class="flex items-baseline gap-1 text-slate-900">
+                        <span class="text-2xl font-bold">R$</span>
+                        <span class="text-5xl font-black">34,90</span>
+                    </div>
+                    <span
+                        class="bg-green-100 text-green-700 border border-green-200 font-bold text-xs px-2 py-0.5 rounded-md whitespace-nowrap">-91%
+                        OFF</span>
+                </div>
+                <ul class="space-y-4 mb-8">
+                    <li class="flex items-center gap-3 text-slate-600 font-semibold">
+                        <span class="material-symbols-outlined text-accent-teal text-xl">check_circle</span>
+                        Acesso por 12 meses
+                    </li>
+                    <li class="flex items-center gap-3 text-slate-600">
+                        <span class="material-symbols-outlined text-accent-teal text-xl">check_circle</span>
+                        Todos os recursos Pro
+                    </li>
+                </ul>
+                <a href="https://seguro.caeluss.com.br/r/8R4FDDWA5Y" target="_blank"
+                    class="w-full bg-primary py-4 rounded-full font-bold shadow-md inline-block text-center hover:scale-105 transition-transform">Assinar
+                    Agora</a>
+            </div>
+            <!-- Card 3 -->
+            <div class="bg-white p-8 rounded-3xl shadow-2xl border-2 border-accent-teal relative overflow-hidden transition-transform hover:scale-105 fade-in-up"
+                style="transition-delay: 300ms;">
+                <div
+                    class="absolute top-4 right-[-35px] bg-accent-teal text-white px-10 py-1 rotate-45 text-xs font-bold uppercase tracking-wider shadow-sm">
+                    + Vendido
+                </div>
+                <h3 class="text-xl font-bold text-slate-900 mb-2">Plano 2 Anos</h3>
+                <div class="text-sm text-slate-400 line-through mb-1">Custo oficial: R$ 837,60 / 2 anos</div>
+                <div class="flex items-center gap-2 mb-6">
+                    <div class="flex items-baseline gap-1 text-slate-900">
+                        <span class="text-2xl font-bold">R$</span>
+                        <span class="text-5xl font-black">54,90</span>
+                    </div>
+                    <span
+                        class="bg-green-100 text-green-700 border border-green-200 font-bold text-xs px-2 py-0.5 rounded-md whitespace-nowrap">-93%
+                        OFF</span>
+                </div>
+                <ul class="space-y-4 mb-8">
+                    <li class="flex items-center gap-3 text-slate-600 font-semibold">
+                        <span class="material-symbols-outlined text-accent-teal text-xl">check_circle</span>
+                        Acesso por 24 meses
+                    </li>
+                    <li class="flex items-center gap-3 text-slate-600">
+                        <span class="material-symbols-outlined text-accent-teal text-xl">check_circle</span>
+                        Economia máxima
+                    </li>
+                    <li class="flex items-center gap-3 text-slate-600">
+                        <span class="material-symbols-outlined text-accent-teal text-xl">check_circle</span>
+                        Todos os recursos Pro
+                    </li>
+                </ul>
+                <a href="https://seguro.caeluss.com.br/r/I12EMWHB6A" target="_blank"
+                    class="w-full bg-primary py-4 rounded-full font-bold shadow-md inline-block text-center hover:scale-105 transition-transform">Assinar
+                    Agora</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why so cheap? -->
+    <section class="px-6 py-12 bg-white fade-in-up">
+        <div
+            class="max-w-3xl mx-auto bg-slate-900 rounded-3xl p-8 md:p-10 text-white shadow-2xl relative overflow-hidden">
+            <div
+                class="absolute top-0 right-0 w-64 h-64 bg-accent-purple/30 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2">
+            </div>
+            <div class="relative z-10">
+                <div class="flex items-center gap-3 mb-4">
+                    <span class="material-symbols-outlined text-primary text-4xl">policy</span>
+                    <h2 class="text-2xl font-bold">Por que é tão barato? Tem pegadinha?</h2>
+                </div>
+                <p class="text-slate-300 leading-relaxed">
+                    <strong>Nenhuma pegadinha.</strong> Nós adquirimos licenças corporativas em larga escala (Canva para
+                    Equipes) e dividimos o custo, repassando o desconto integralmente para você.
+                    <br><br>
+                    Todo o processo é feito de forma 100% legal, sem nenhum tipo de pirataria. Você recebe um convite
+                    oficial no seu e-mail para usar na sua própria conta, tendo acesso aos exatos mesmos recursos de
+                    quem paga o valor cheio, mas pagando apenas uma pequena fração.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonial & Guarantee Section -->
+    <section class="px-6 py-16 bg-white fade-in-up">
+        <div class="max-w-3xl mx-auto flex flex-col items-center text-center gap-10">
+
+            <!-- Social Proof Carousel -->
+            <div class="marquee-container">
+                <div class="marquee-content">
+                    <!-- Set 1 -->
+                    <div class="marquee-item bg-background-light p-8 rounded-3xl relative text-left whitespace-normal">
+                        <span
+                            class="material-symbols-outlined absolute top-4 left-4 text-slate-200 text-6xl">format_quote</span>
+                        <p class="text-sm italic text-slate-700 relative z-10 mb-4 h-24 overflow-hidden">
+                            "Finalmente consegui profissionalizar meu feed do Instagram sem falir. A entrega foi
+                            instantânea e já estou usando todos os recursos Premium no meu próprio e-mail!"
+                        </p>
+                        <div class="flex items-center gap-3">
+                            <div
+                                class="w-10 h-10 bg-accent-purple rounded-full flex items-center justify-center text-white font-bold">
+                                J</div>
+                            <div>
+                                <p class="font-bold text-slate-900 leading-tight">Juliana Martins</p>
+                                <p class="text-xs text-slate-500">Social Media</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="marquee-item bg-background-light p-8 rounded-3xl relative text-left whitespace-normal">
+                        <span
+                            class="material-symbols-outlined absolute top-4 left-4 text-slate-200 text-6xl">format_quote</span>
+                        <p class="text-sm italic text-slate-700 relative z-10 mb-4 h-24 overflow-hidden">
+                            "Melhor investimento do ano. Usar o removedor de fundo em 1 clique salvou horas do meu dia.
+                            Suporte rápido e acesso garantido mesmo."
+                        </p>
+                        <div class="flex items-center gap-3">
+                            <div
+                                class="w-10 h-10 bg-accent-teal rounded-full flex items-center justify-center text-white font-bold">
+                                C</div>
+                            <div>
+                                <p class="font-bold text-slate-900 leading-tight">Carlos Eduardo</p>
+                                <p class="text-xs text-slate-500">Empreendedor</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="marquee-item bg-background-light p-8 rounded-3xl relative text-left whitespace-normal">
+                        <span
+                            class="material-symbols-outlined absolute top-4 left-4 text-slate-200 text-6xl">format_quote</span>
+                        <p class="text-sm italic text-slate-700 relative z-10 mb-4 h-24 overflow-hidden">
+                            "Tinha receio de comprar, mas recebi o convite no e-mail na mesma hora. Estúdio de Marca
+                            funcionando 100%. Recomendo muito!"
+                        </p>
+                        <div class="flex items-center gap-3">
+                            <div
+                                class="w-10 h-10 bg-primary rounded-full flex items-center justify-center text-slate-900 font-bold">
+                                M</div>
+                            <div>
+                                <p class="font-bold text-slate-900 leading-tight">Mariana Silva</p>
+                                <p class="text-xs text-slate-500">Designer Autônoma</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Set 2 (Duplicated for seamless loop) -->
+                    <div class="marquee-item bg-background-light p-8 rounded-3xl relative text-left whitespace-normal">
+                        <span
+                            class="material-symbols-outlined absolute top-4 left-4 text-slate-200 text-6xl">format_quote</span>
+                        <p class="text-sm italic text-slate-700 relative z-10 mb-4 h-24 overflow-hidden">
+                            "Finalmente consegui profissionalizar meu feed do Instagram sem falir. A entrega foi
+                            instantânea e já estou usando todos os recursos Premium no meu próprio e-mail!"
+                        </p>
+                        <div class="flex items-center gap-3">
+                            <div
+                                class="w-10 h-10 bg-accent-purple rounded-full flex items-center justify-center text-white font-bold">
+                                J</div>
+                            <div>
+                                <p class="font-bold text-slate-900 leading-tight">Juliana Martins</p>
+                                <p class="text-xs text-slate-500">Social Media</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="marquee-item bg-background-light p-8 rounded-3xl relative text-left whitespace-normal">
+                        <span
+                            class="material-symbols-outlined absolute top-4 left-4 text-slate-200 text-6xl">format_quote</span>
+                        <p class="text-sm italic text-slate-700 relative z-10 mb-4 h-24 overflow-hidden">
+                            "Melhor investimento do ano. Usar o removedor de fundo em 1 clique salvou horas do meu dia.
+                            Suporte rápido e acesso garantido mesmo."
+                        </p>
+                        <div class="flex items-center gap-3">
+                            <div
+                                class="w-10 h-10 bg-accent-teal rounded-full flex items-center justify-center text-white font-bold">
+                                C</div>
+                            <div>
+                                <p class="font-bold text-slate-900 leading-tight">Carlos Eduardo</p>
+                                <p class="text-xs text-slate-500">Empreendedor</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="marquee-item bg-background-light p-8 rounded-3xl relative text-left whitespace-normal">
+                        <span
+                            class="material-symbols-outlined absolute top-4 left-4 text-slate-200 text-6xl">format_quote</span>
+                        <p class="text-sm italic text-slate-700 relative z-10 mb-4 h-24 overflow-hidden">
+                            "Tinha receio de comprar, mas recebi o convite no e-mail na mesma hora. Estúdio de Marca
+                            funcionando 100%. Recomendo muito!"
+                        </p>
+                        <div class="flex items-center gap-3">
+                            <div
+                                class="w-10 h-10 bg-primary rounded-full flex items-center justify-center text-slate-900 font-bold">
+                                M</div>
+                            <div>
+                                <p class="font-bold text-slate-900 leading-tight">Mariana Silva</p>
+                                <p class="text-xs text-slate-500">Designer Autônoma</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Guarantee -->
+            <div class="flex flex-col md:flex-row items-center gap-6 p-6 border-2 border-slate-100 rounded-2xl w-full">
+                <span class="material-symbols-outlined text-5xl text-accent-teal">verified</span>
+                <div class="text-left">
+                    <h3 class="font-bold text-lg text-slate-900">Risco Zero: Satisfação Garantida</h3>
+                    <p class="text-sm text-slate-600">Se você não conseguir acessar o plano Pro ou não estiver
+                        satisfeito, devolvemos 100% do seu dinheiro em até 7 dias após a compra.</p>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- FAQ Accordion -->
+    <section class="px-6 py-12 bg-white fade-in-up">
+        <h2 class="text-2xl font-bold mb-8 text-center">Perguntas Frequentes</h2>
+        <div class="space-y-4">
+            <details class="group rounded-2xl bg-slate-50 border border-slate-100 p-4">
+                <summary class="flex items-center justify-between font-bold cursor-pointer list-none">
+                    <span>É seguro?</span>
+                    <span
+                        class="material-symbols-outlined group-open:rotate-180 transition-transform">expand_more</span>
+                </summary>
+                <p class="mt-4 text-slate-600 text-sm leading-relaxed">
+                    Sim, você receberá um convite oficial no seu e-mail para ativar sua conta premium de forma
+                    totalmente legal.
+                </p>
+            </details>
+            <details class="group rounded-2xl bg-slate-50 border border-slate-100 p-4">
+                <summary class="flex items-center justify-between font-bold cursor-pointer list-none">
+                    <span>Como recebo?</span>
+                    <span
+                        class="material-symbols-outlined group-open:rotate-180 transition-transform">expand_more</span>
+                </summary>
+                <p class="mt-4 text-slate-600 text-sm leading-relaxed">
+                    A entrega é imediata após a confirmação do pagamento. Você receberá as instruções e o link de acesso
+                    diretamente no seu e-mail cadastrado.
+                </p>
+            </details>
+            <details class="group rounded-2xl bg-slate-50 border border-slate-100 p-4">
+                <summary class="flex items-center justify-between font-bold cursor-pointer list-none">
+                    <span>Quanto tempo dura o acesso?</span>
+                    <span
+                        class="material-symbols-outlined group-open:rotate-180 transition-transform">expand_more</span>
+                </summary>
+                <p class="mt-4 text-slate-600 text-sm leading-relaxed">
+                    O acesso dura exatamente o período contratado (12 ou 24 meses). Não trabalhamos com planos
+                    vitalícios para garantir a estabilidade do serviço.
+                </p>
+            </details>
+        </div>
+    </section>
+    <footer class="px-6 pt-12 pb-28 md:pb-12 bg-slate-900 text-slate-400 text-center">
+        <div class="flex items-center justify-center gap-2 mb-6">
+            <img src="https://i.imgur.com/lVkrlgb.png" alt="Clube Canva Pro Logo"
+                class="h-12 w-auto brightness-0 invert" />
+        </div>
+        <p class="text-sm mb-4">© 2026 Clube Canva Pro. Todos os direitos reservados.</p>
+        <p class="text-xs max-w-xs mx-auto">Este site não é afiliado ao Canva Pty Ltd e nem Facebook ou a qualquer
+            entidade do Facebook. Somos uma revenda independente de
+            serviços premium.</p>
+    </footer>
+
+    <!-- Sticky Mobile CTA -->
+    <a href="#planos"
+        class="md:hidden fixed bottom-0 left-0 right-0 bg-primary text-slate-900 py-4 font-bold text-center z-50 text-[15px] shadow-[0_-5px_20px_rgba(0,0,0,0.15)] border-t border-yellow-400 block transition-transform">
+        ASSINAR CANVA PRO AGORA ⚡
+    </a>
+
+    <!-- Scripts -->
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach((entry) => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add("visible");
+                    }
+                });
+            }, { threshold: 0.1 });
+
+            document.querySelectorAll(".fade-in-up").forEach((el) => {
+                observer.observe(el);
+            });
+        });
+    </script>
+</body>
+
+</html>
